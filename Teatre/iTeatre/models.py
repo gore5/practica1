@@ -9,25 +9,37 @@ class Actor(models.Model):
 	edat = models.IntegerField()
 	sexe = models.CharField(max_length=1)
 	
+	def __unicode__(self):
+	        return self.nom
+
 	
 
 class Obra_Teatre(models.Model):
 	nomObra = models.CharField(max_length=40)
 	Tipus = models.CharField(max_length=40)
 	date = models.DateTimeField()
+	actor = models.ForeignKey(Actor)
+
+	def __unicode__(self):
+		return self.nomObra
+
 	
 
 class Escriptor(models.Model):
 	nom = models.CharField(max_length=40)
 	obra = models.ForeignKey(Obra_Teatre)
 
+
 class Director(models.Model):
 	nom = models.CharField(max_length=40)
 	obra = models.ForeignKey(Obra_Teatre)
 
-Actor.add_to_class('obra', models.ForeignKey(Obra_Teatre))
-Obra_Teatre.add_to_class('actor', models.ForeignKey(Actor))
-Obra_Teatre.add_to_class('director', models.ForeignKey(Director))
-Obra_Teatre.add_to_class('escriptor', models.ForeignKey(Escriptor))
-'''Escriptor.add_to_class('obra', models.ForeignKey(Obra_Teatre))
-Director.add_to_class('obra', models.ForeignKey(Obra_Teatre))'''
+
+
+class Relacio(models.Model):
+	director = models.ForeignKey(Director)
+	escriptor = models.ForeignKey(Escriptor)
+	obra = models.ForeignKey(Obra_Teatre)
+	actor = models.ForeignKey(Actor)
+
+
