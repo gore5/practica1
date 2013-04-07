@@ -5,4 +5,4 @@ admin.site.register(Actor)
 admin.site.register(Obra_Teatre)
 admin.site.register(Escriptor)
 admin.site.register(Director)
-admin.site.register(Relacio)
+

@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', mainpage, name='home'),
+    url(r'^$', escriptorpagina, name='escriptorllist'),
     #url(r'^Teatre/', include('Teatre.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

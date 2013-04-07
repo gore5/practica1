@@ -15,3 +15,14 @@ def mainpage(request):
 	return HttpResponse(output)
 
 
+def escriptorpagina(request):
+
+	escriptor = Escriptor.objects.all()
+	template = get_template('llistar.html')
+	variables = Context({
+		'pagetitle': 'Llista de escriptors',
+		'contentbody': escriptor,
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
