@@ -1,3 +1,4 @@
+import os.path
 # Django settings for Teatre project.
 
 DEBUG = True
@@ -20,10 +21,6 @@ DATABASES = {
     }
 }
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en//ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -36,8 +33,6 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
 USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
@@ -103,7 +98,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'Teatre.urls'
 
-# Python dotted path to the WSGI application used by Django's runserver.
+# Python dotted path to the WSGI application used by Django's runserto False, Django will make some optimizations so as notclass Actor(models.Model):ver.
 WSGI_APPLICATION = 'Teatre.wsgi.application'
 
 TEMPLATE_DIRS = (
@@ -119,6 +114,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'iTeatre',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
