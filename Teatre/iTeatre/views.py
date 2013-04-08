@@ -28,6 +28,50 @@ def escriptorpagina(request):
 	output = template.render(variables)
 	return HttpResponse(output)
 
+def actorpagina(request):
+
+	actor = Actor.objects.all()
+	template = get_template('llistar.html')
+	variables = Context({
+		'pagetitle': 'Llista de actors',
+		'contentbody': actor,
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def directorpagina(request):
+
+	director = Director.objects.all()
+	template = get_template('llistar.html')
+	variables = Context({
+		'pagetitle': 'Llista de Directors',
+		'contentbody': director,
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def representaciopagina(request):
+
+	representacio = Representacio.objects.all()
+	template = get_template('llistar.html')
+	variables = Context({
+		'pagetitle': 'Llista de Representacions',
+		'contentbody': representacio,
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def obra_Teatrepagina(request):
+
+	obra_Teatre = Obra_Teatre.objects.all()
+	template = get_template('llistar.html')
+	variables = Context({
+		'pagetitle': 'Llista de obres de teatre',
+		'contentbody': obra_Teatre,
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
 
 
 

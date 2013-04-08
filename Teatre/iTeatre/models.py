@@ -44,7 +44,7 @@ class nom_Obra (models.Model):
 	
 
 class Representacio (models.Model):
-	nomObra = models.ForeignKey(nom_Obra)
+	nom = models.ForeignKey(nom_Obra)
 	dataInici = models.DateField()
 	dataFi = models.DateField()
 	actors = models.ManyToManyField(Actor)
@@ -57,7 +57,7 @@ class Representacio (models.Model):
 
 
 class Obra_Teatre(models.Model):
-	nomObra = models.ForeignKey(nom_Obra)
+	nom = models.ForeignKey(nom_Obra)
 	Tipus = models.CharField(max_length=40)
 	escriptor = models.ForeignKey(Escriptor)
 	representacions = models.ManyToManyField(Representacio)

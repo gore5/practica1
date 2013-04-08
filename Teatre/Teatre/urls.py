@@ -8,7 +8,11 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', mainpage, name='home'),
-    url(r'^escriptor$', escriptorpagina, name='escriptorllist'),
+    url(r'^escriptors$', escriptorpagina, name='escriptorsllist'),
+	url(r'^actors$', actorpagina, name='actorsllist'),
+	url(r'^directors$', directorpagina, name='directorsllist'),
+	url(r'^representacions$', representaciopagina, name='representacionsllist'),
+	url(r'^obresTeatre$', obra_Teatrepagina, name='obresTeatrellist'),
    
     #url(r'^Teatre/', include('Teatre.foo.urls')),
 
