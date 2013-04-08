@@ -53,7 +53,7 @@ class Representacio (models.Model):
 	
 
 	def __unicode__(self):
-		return self.nomObra.nomObra
+		return self.nom.nomObra
 
 
 class Obra_Teatre(models.Model):
@@ -63,7 +63,7 @@ class Obra_Teatre(models.Model):
 	representacions = models.ManyToManyField(Representacio)
 
 	def __unicode__(self):
-		return self.nomObra.nomObra
+		return self.nom.nomObra
 
 
 

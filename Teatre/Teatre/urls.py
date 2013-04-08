@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 	url(r'^directors$', directorpagina, name='directorsllist'),
 	url(r'^representacions$', representaciopagina, name='representacionsllist'),
 	url(r'^obresTeatre$', obra_Teatrepagina, name='obresTeatrellist'),
+	url(r'^infoObresTeatre$', info_obra_Teatrepagina, name='infoObresTeatre'),
    
     #url(r'^Teatre/', include('Teatre.foo.urls')),
 
