@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import *
+
 
 # Create your models here.
 
@@ -7,6 +9,8 @@ from django.contrib.auth.models import User
 class Escriptor(models.Model):
 	nom = models.CharField(max_length=40)
 	edat = models.IntegerField()
+	sexe = models.CharField(max_length=1)
+	localitat = models.CharField(max_length=40)
 
 	def __unicode__(self):
 		return self.nom
@@ -16,7 +20,7 @@ class Actor(models.Model):
 	nom = models.CharField(max_length=40)
 	edat = models.IntegerField()
 	sexe = models.CharField(max_length=1)
-	
+	localitat = models.CharField(max_length=40)
 	
 	def __unicode__(self):
 	        return self.nom
@@ -26,14 +30,14 @@ class Director(models.Model):
 	nom = models.CharField(max_length=40)
 	edat = models.IntegerField()
 	sexe = models.CharField(max_length=1)
-	
+	localitat = models.CharField(max_length=40)
 
 	def __unicode__(self):
 		return self.nom
 
 
 class nom_Obra (models.Model):
-	nomObra = models.CharField(max_length=40)
+	nomObra = models.CharField(primary_key=True,max_length=40)
 
 	def __unicode__(self):
 		return self.nomObra
@@ -41,14 +45,15 @@ class nom_Obra (models.Model):
 
 class Representacio (models.Model):
 	nomObra = models.ForeignKey(nom_Obra)
-	dataInici = models.DateTimeField()
-	dataFi = models.DateTimeField()
+	dataInici = models.DateField()
+	dataFi = models.DateField()
 	actors = models.ManyToManyField(Actor)
 	director = models.ForeignKey(Director)
 	
+	
 
 	def __unicode__(self):
-		return self.nomObra
+		return self.nomObra.nomObra
 
 
 class Obra_Teatre(models.Model):
@@ -58,7 +63,7 @@ class Obra_Teatre(models.Model):
 	representacions = models.ManyToManyField(Representacio)
 
 	def __unicode__(self):
-		return self.nomObra
+		return self.nomObra.nomObra
 
 
 
