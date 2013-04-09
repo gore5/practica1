@@ -17,38 +17,85 @@ def mainpage(request):
 	return HttpResponse(output)
 
 
+#--------------------------------------------ESCRIPTOR------------------------------------------------
+
 def escriptorpagina(request):
 
 	escriptor = Escriptor.objects.all()
-	template = get_template('llistar.html')
+	template = get_template('llista.html')
 	variables = Context({
 		'pagetitle': 'Llista de escriptors',
+		'contentbody': escriptor,
+		'name':'/escriptors/',
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def escriptordades(request, idEscriptor):
+
+	escriptor = Escriptor.objects.get(id=idEscriptor)
+	template = get_template('dades.html')
+	variables = Context({
+		'pagetitle': 'Dades del escriptor',
 		'contentbody': escriptor,
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
 
+
+#----------------------------------------------ACTOR--------------------------------------------------
+
 def actorpagina(request):
 
 	actor = Actor.objects.all()
-	template = get_template('llistar.html')
+	template = get_template('llista.html')
 	variables = Context({
 		'pagetitle': 'Llista de actors',
+		'contentbody': actor,
+		'name':'/actors/',
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def actordades(request, idActor):
+
+	actor = Actor.objects.get(id=idActor)
+	template = get_template('dades.html')
+	variables = Context({
+		'pagetitle': 'Dades del actor',
 		'contentbody': actor,
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
 
+
+#--------------------------------------------DIRECTOR------------------------------------------------
+
 def directorpagina(request):
 
 	director = Director.objects.all()
-	template = get_template('llistar.html')
+	template = get_template('llista.html')
 	variables = Context({
 		'pagetitle': 'Llista de Directors',
+		'contentbody': director,
+		'name':'/directors/',
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def directordades(request, idDirector):
+
+	director = Director.objects.get(id=idDirector)
+	template = get_template('dades.html')
+	variables = Context({
+		'pagetitle': 'Dades del director',
 		'contentbody': director,
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
+
+
+#--------------------------------------------REPRESENTACIO------------------------------------------------
 
 def representaciopagina(request):
 
@@ -61,20 +108,25 @@ def representaciopagina(request):
 	output = template.render(variables)
 	return HttpResponse(output)
 
+
+#-------------------------------------------------OBRA-----------------------------------------------------
+
 def obra_Teatrepagina(request):
 
 	obra_Teatre = Obra_Teatre.objects.all()
-	template = get_template('llistar.html')
+	template = get_template('llista.html')
 	variables = Context({
 		'pagetitle': 'Llista de obres de teatre',
 		'contentbody': obra_Teatre,
+		'name':'/obresTeatre/',
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
 
-def info_obra_Teatrepagina(request):
-	
-	obra_Teatre = Obra_Teatre.objects.all()
+
+def obra_Teatredades(request, idObra):
+
+	obra_Teatre  = Obra_Teatre.objects.get(id=idObra)
 	template = get_template('infoObresTeatre.html')
 	variables = Context({
 		'pagetitle': 'Informacio de les obres de teatre',

@@ -9,11 +9,14 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', mainpage, name='home'),
     url(r'^escriptors$', escriptorpagina, name='escriptorsllist'),
+	url(r'^escriptors/(?P<idEscriptor>\d+)/$', escriptordades, name='Dades dels escriptors'),
 	url(r'^actors$', actorpagina, name='actorsllist'),
+   	url(r'^actors/(?P<idActor>\d+)/$', actordades, name='Dades dels actors'),
 	url(r'^directors$', directorpagina, name='directorsllist'),
+	url(r'^directors/(?P<idDirector>\d+)/$', directordades, name='Dades dels directors'),
 	url(r'^representacions$', representaciopagina, name='representacionsllist'),
 	url(r'^obresTeatre$', obra_Teatrepagina, name='obresTeatrellist'),
-	url(r'^infoObresTeatre$', info_obra_Teatrepagina, name='infoObresTeatre'),
+	url(r'^obresTeatre/(?P<idObra>\d+)/$', obra_Teatredades, name='Dades de les Obres'),
    
     #url(r'^Teatre/', include('Teatre.foo.urls')),
 

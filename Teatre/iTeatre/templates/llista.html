@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>{{ pagetitle }}</title>
+	</head>
+	<body>
+		<h1>{{ pagetitle }}</h1>
+		<ol>
+			{% for i in contentbody %}
+			<li>
+				<p>{{i.nom}} <input type="button" value="Informacio" onClick= location.href="{{name}}{{i.id}}/" /></p>
+			</li>
+			{% endfor %}
+		</ol>
+	</body>
+<html>
