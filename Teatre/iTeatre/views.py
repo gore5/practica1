@@ -75,7 +75,7 @@ def obra_Teatrepagina(request):
 def info_obra_Teatrepagina(request):
 	
 	obra_Teatre = Obra_Teatre.objects.all()
-	template = get_template('infoObresteatre.html')
+	template = get_template('infoObresTeatre.html')
 	variables = Context({
 		'pagetitle': 'Informacio de les obres de teatre',
 		'contentbody': obra_Teatre,

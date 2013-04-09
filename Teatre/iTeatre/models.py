@@ -44,7 +44,8 @@ class nom_Obra (models.Model):
 	
 
 class Representacio (models.Model):
-	nom = models.ForeignKey(nom_Obra)
+	nom = models.CharField(max_length=40)
+	nomObra = models.ForeignKey(nom_Obra)
 	dataInici = models.DateField()
 	dataFi = models.DateField()
 	actors = models.ManyToManyField(Actor)
@@ -53,7 +54,7 @@ class Representacio (models.Model):
 	
 
 	def __unicode__(self):
-		return self.nom.nomObra
+		return self.nom
 
 
 class Obra_Teatre(models.Model):
