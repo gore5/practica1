@@ -7,7 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', mainpage, name='home'),
+	url(r'^$', init, name='init'),
+    url(r'^HTMLview$', mainpageHTML, name='homeHTML'),
+	url(r'^XMLview$', mainpageXML, name='homeXML'),
     url(r'^escriptors$', escriptorpagina, name='escriptorsllist'),
 	url(r'^escriptors/(?P<idEscriptor>\d+)/$', escriptordades, name='Dades dels escriptors'),
 	url(r'^actors$', actorpagina, name='actorsllist'),

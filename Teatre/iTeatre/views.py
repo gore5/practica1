@@ -5,13 +5,41 @@ from django.contrib.auth.models import User
 from models import *
 
 
-def mainpage(request):
-	template = get_template('mainpage.html')
+extension=''
+
+def init(request):
+	template = get_template('init.html')
+	variables = Context({
+
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+
+def mainpageHTML(request):
+	global extension
+	extension='html'
+	template = get_template('index.html')
 	variables = Context({
 		'titlehead': 'Teatre aPP',
 		'pagetitle': 'Benvingut a la aplicacio de Teatres',
 		'contentbody': 'Aqui podras administrar coses de Teatre',
-		'user': request.user
+		'user': request.user,
+		'extension': extension
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def mainpageXML(request):
+	global extension
+	template = get_template('index.html')
+	extension='xml'
+	variables = Context({
+		'titlehead': 'Teatre aPP',
+		'pagetitle': 'Benvingut a la aplicacio de Teatres',
+		'contentbody': 'Aqui podras administrar coses de Teatre',
+		'user': request.user,
+		'extension': extension
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
@@ -20,9 +48,9 @@ def mainpage(request):
 #--------------------------------------------ESCRIPTOR------------------------------------------------
 
 def escriptorpagina(request):
-
+	global extension
 	escriptor = Escriptor.objects.all()
-	template = get_template('llista.html')
+	template = get_template('llista.'+extension)
 	variables = Context({
 		'pagetitle': 'Llista de escriptors',
 		'contentbody': escriptor,
@@ -32,7 +60,7 @@ def escriptorpagina(request):
 	return HttpResponse(output)
 
 def escriptordades(request, idEscriptor):
-
+	global extension
 	escriptor = Escriptor.objects.get(id=idEscriptor)
 	template = get_template('dades.html')
 	variables = Context({
@@ -46,9 +74,9 @@ def escriptordades(request, idEscriptor):
 #----------------------------------------------ACTOR--------------------------------------------------
 
 def actorpagina(request):
-
+	global extension
 	actor = Actor.objects.all()
-	template = get_template('llista.html')
+	template = get_template('llista.'+extension)
 	variables = Context({
 		'pagetitle': 'Llista de actors',
 		'contentbody': actor,
@@ -58,7 +86,7 @@ def actorpagina(request):
 	return HttpResponse(output)
 
 def actordades(request, idActor):
-
+	global extension
 	actor = Actor.objects.get(id=idActor)
 	template = get_template('dades.html')
 	variables = Context({
@@ -72,7 +100,7 @@ def actordades(request, idActor):
 #--------------------------------------------DIRECTOR------------------------------------------------
 
 def directorpagina(request):
-
+	global extension
 	director = Director.objects.all()
 	template = get_template('llista.html')
 	variables = Context({
@@ -84,7 +112,7 @@ def directorpagina(request):
 	return HttpResponse(output)
 
 def directordades(request, idDirector):
-
+	global extension
 	director = Director.objects.get(id=idDirector)
 	template = get_template('dades.html')
 	variables = Context({
@@ -98,7 +126,7 @@ def directordades(request, idDirector):
 #--------------------------------------------REPRESENTACIO------------------------------------------------
 
 def representaciopagina(request):
-
+	global extension
 	representacio = Representacio.objects.all()
 	template = get_template('llistar.html')
 	variables = Context({
@@ -112,7 +140,7 @@ def representaciopagina(request):
 #-------------------------------------------------OBRA-----------------------------------------------------
 
 def obra_Teatrepagina(request):
-
+	global extension
 	obra_Teatre = Obra_Teatre.objects.all()
 	template = get_template('llista.html')
 	variables = Context({
@@ -125,7 +153,7 @@ def obra_Teatrepagina(request):
 
 
 def obra_Teatredades(request, idObra):
-
+	global extension
 	obra_Teatre  = Obra_Teatre.objects.get(id=idObra)
 	template = get_template('infoObresTeatre.html')
 	variables = Context({
@@ -134,6 +162,7 @@ def obra_Teatredades(request, idObra):
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
+
 
 
 
