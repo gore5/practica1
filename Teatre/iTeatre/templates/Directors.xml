@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<directors>
+
+<titol>{{ pagetitle }}</titol><br/>
+{% for i in contentbody %}
+
+<director>
+<nom>{{i.nom }}</nom>
+<edat>{{i.edat}}</edat>
+<sexe>{{i.sexe}}</sexe>
+<br/>
+</director>
+
+{% endfor %}
+
+
+</directors>
