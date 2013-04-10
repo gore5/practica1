@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 	url(r'^escriptors/(?P<idEscriptor>\d+)/format=(?P<format>\w+)$', escriptordades, name='Dades dels escriptorsamb format'),
 
 	url(r'^actors$', actorpagina, name='actorsllist'),
-    url(r'^actors/(?P<idActor>\d+)/$', actordades, name='Dades dels actors'),
+   	url(r'^actors/(?P<idActor>\d+)/$', actordades, name='Dades dels actors'),
 	url(r'^actors/(?P<idActor>\d+)/format=(?P<format>\w+)$', actordades, name='Dades dels actors amb format'),
 
 	url(r'^directors$', directorpagina, name='directorsllist'),
@@ -28,7 +28,8 @@ urlpatterns = patterns('',
 	url(r'^obresTeatre$', obra_Teatrepagina, name='obresTeatrellist'),
 	url(r'^obresTeatre/(?P<idObra>\d+)/$', obra_Teatredades, name='Dades de les Obres'),
 	url(r'^obresTeatre/(?P<idObra>\d+)/format=(?P<format>\w+)$', obra_Teatredades, name='Dades de les Obres amb format'),
-   
+
+    url(r'^login/$','django.contrib.auth.views.login'),
     #url(r'^Teatre/', include('Teatre.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -1,13 +1,14 @@
-<html>
-	<head>
+{% extends "index.html"  %}
+
+{% block content %}
 	<h1>{{pagetitle}}</h1>
-	</head>
-	<body>
-		<ol>
+{% endblock %}
+
+	{% block nextcontent %}	
+		<ul>
 		<p><b>Nom:</b> {{contentbody.nom}}</p>
 		<p><b>Edat:</b> {{contentbody.edat}}</p>
 		<p><b>Sexe:</b> {{contentbody.sexe}}</p>
 		<p><b>Localitat:</b> {{contentbody.localitat}}</p>
-		</ol>
-	</body>
-</html>
+		</ul>
+	{% endblock %}

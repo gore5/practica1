@@ -1,9 +1,9 @@
-<html>
-	<head>
-	
-	</head>
-	<body>
+{% extends "index.html"  %}
+
+{% block content %}
 		<h1>{{ pagetitle }}</h1>
+{% endblock %}
+{% block nextcontent %}	
 		<li><p> <b>{{contentbody.nom }}</b></p></li>
 		<ol>
 			<ol><p>Tipus: {{contentbody.Tipus}}</p>
@@ -22,6 +22,5 @@
 					</ol>
 			</ol>
 		</ol>
-		</ol>
-	</body>
-</html>
+		
+{% endblock %}

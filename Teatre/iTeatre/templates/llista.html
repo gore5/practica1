@@ -7,12 +7,12 @@
 		<h1>{{ pagetitle }}</h1>
 {% endblock %}
 		{% block nextcontent %}		
-		<ol>
+		<ul>
 			{% for i in contentbody %}
 			<li>
 				<p><a href="{{name}}{{i.id}}/">{{i.nom}} </a></p>
 			</li>
 			{% endfor %}
-		</ol>
+		</ul>
 {% endblock %}
 	

@@ -1,8 +1,9 @@
-<html>
-	<head>
+{% extends "index.html"  %}
+
+{% block content %}
 	<h1>{{pagetitle}}</h1>
-	</head>
-	<body>
+{% endblock %}
+ {% block nextcontent %}	
 		<ol>
 		<p><b>Titol:</b> {{contentbody.nom}}</p>
 		<p><b>Obra que representa:</b> {{contentbody.nomObra}}</p>
@@ -15,5 +16,4 @@
 						{% endfor %}
 						</ol>			
 		</ol>
-	</body>
-</html>
+{% endblock %}
