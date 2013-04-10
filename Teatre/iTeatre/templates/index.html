@@ -1,21 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
 
 <html>
     <head>
+	<link rel="stylesheet"  href=" {% static "style.css" %} " />
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Teatres de Catalunya</title>
         <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
-        <link href="style.css" rel="stylesheet" type="text/css" />
+     
     </head>
     <body>
+	
+	
+		
+	
+	
 		<div id="bg">
 			<div id="outer">
 				<div id="header">
 					<div id="logo">
 						<h1>
-							<a href="#">Teatre Catalunyans</a>
+							<a href="hola">Teatre Catalunyans</a>
 						</h1>
 					</div>
 					
@@ -23,38 +31,45 @@
 				<div id="main">
 					<div id="sidebar">
 						<h3>
-							Hola benvingut!
+							Hola benvingut! {% if user.username %}<p>User {{ user.username }}</p>
+							{% else %} <p><a href="/login/"> Sign in </a></p>{% endif %}
 						</h3>
+						
 						<p>
 							Aqui tens tots els links que pots llistar:
 						</p>
+						
 						<ul class="linkedList">
 							<li class="first">
-								<a href="#">Escriptors</a>
+								<a href="escriptors">Escriptors</a>
 							</li>
 							<li>
 								<a href="actors">Actors</a>
 							</li>
 							<li>
-								<a href="#">Directors</a>
+								<a href="directors">Directors</a>
 							</li>
 							<li>
-								<a href="#">Representacions</a>
+								<a href="representacions">Representacions</a>
 							</li>
 							<li class="last">
-								<a href="#">Obres de teatre</a>
+								<a href="obresTeatre">Obres de teatre</a>
 							</li>
 						</ul>
 					</div>
+					
+
 					<div id="content">
 						<div id="box1">
+						{% block content %}
 							<h2>
-								Aqui llistarem el contingut de les llistes......
-							</h2>
+								
 							
-							<p>
-								Bla bla bla
-							</p>
+							</h2>
+							{% endblock %}
+							<p>{% block nextcontent %}
+								
+							</p>{% endblock %}
 						</div>
 						
 						<br class="clear" />

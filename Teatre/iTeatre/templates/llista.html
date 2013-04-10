@@ -1,15 +1,18 @@
-<html>
-	<head>
-		<title>{{ pagetitle }}</title>
-	</head>
-	<body>
+{% extends "index.html"  %}
+
+
+
+
+{% block content %}
 		<h1>{{ pagetitle }}</h1>
+{% endblock %}
+		{% block nextcontent %}		
 		<ol>
 			{% for i in contentbody %}
 			<li>
-				<p>{{i.nom}} <input type="button" value="Informacio" onClick= location.href="{{name}}{{i.id}}/" /></p>
+				<p><a href="{{name}}{{i.id}}/">{{i.nom}} </a></p>
 			</li>
 			{% endfor %}
 		</ol>
-	</body>
-<html>
+{% endblock %}
+	
