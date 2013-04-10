@@ -33,13 +33,18 @@ def escriptorpagina(request):
 	output = template.render(variables)
 	return HttpResponse(output)
 
-def escriptordades(request, idEscriptor):
+def escriptordades(request, idEscriptor, format='html'):
 
 	escriptor = Escriptor.objects.get(id=idEscriptor)
-	template = get_template('dades.html')
+	if(format=='xml'):
+		template = get_template('dades.xml')
+	else:
+		template = get_template('dades.html')
 	variables = Context({
 		'pagetitle': 'Dades del escriptor',
 		'contentbody': escriptor,
+		'tag1':'escriptors',
+		'tag2':'escriptor'
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
@@ -59,13 +64,18 @@ def actorpagina(request):
 	output = template.render(variables)
 	return HttpResponse(output)
 
-def actordades(request, idActor):
+def actordades(request, idActor, format='html'):
 
 	actor = Actor.objects.get(id=idActor)
-	template = get_template('dades.html')
+	if(format=='xml'):
+		template = get_template('dades.xml')
+	else:
+		template = get_template('dades.html')
 	variables = Context({
 		'pagetitle': 'Dades del actor',
 		'contentbody': actor,
+		'tag1':'actors',
+		'tag2':'actor'
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
@@ -85,13 +95,18 @@ def directorpagina(request):
 	output = template.render(variables)
 	return HttpResponse(output)
 
-def directordades(request, idDirector):
+def directordades(request, idDirector, format='html'):
 
 	director = Director.objects.get(id=idDirector)
-	template = get_template('dades.html')
+	if(format=='xml'):
+		template = get_template('dades.xml')
+	else:
+		template = get_template('dades.html')
 	variables = Context({
 		'pagetitle': 'Dades del director',
 		'contentbody': director,
+		'tag1':'director',
+		'tag2':'directors'
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
@@ -102,15 +117,29 @@ def directordades(request, idDirector):
 def representaciopagina(request):
 
 	representacio = Representacio.objects.all()
-	template = get_template('llistar.html')
+	template = get_template('llista.html')
 	variables = Context({
 		'pagetitle': 'Llista de Representacions',
 		'contentbody': representacio,
+		'name':'/representacions/',
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
 
 
+def representaciodades(request, idRepresentacio, format='html'):
+
+	representacio = Representacio.objects.get(id=idRepresentacio)
+	if(format=='xml'):
+		template = get_template('representacio.xml')
+	else:
+		template = get_template('representacio.html')
+	variables = Context({
+		'pagetitle': 'Informacio de la representacio',
+		'contentbody': representacio,
+	})
+	output = template.render(variables)
+	return HttpResponse(output)
 #-------------------------------------------------OBRA-----------------------------------------------------
 
 def obra_Teatrepagina(request):
@@ -126,10 +155,13 @@ def obra_Teatrepagina(request):
 	return HttpResponse(output)
 
 
-def obra_Teatredades(request, idObra):
+def obra_Teatredades(request, idObra, format='html'):
 
 	obra_Teatre  = Obra_Teatre.objects.get(id=idObra)
-	template = get_template('infoObresTeatre.html')
+	if(format=='xml'):
+		template = get_template('Obrateatre.xml')
+	else:
+		template = get_template('infoObresTeatre.html')
 	variables = Context({
 		'pagetitle': 'Informacio de les obres de teatre',
 		'contentbody': obra_Teatre,

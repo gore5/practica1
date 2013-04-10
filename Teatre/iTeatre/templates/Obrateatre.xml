@@ -5,32 +5,34 @@
 <titol>{{ pagetitle }}</titol><br/>
 
 <obresTeatre>
-{% for i in contentbody %}
 
 <obres>
-<nom>{{i.nom }}</nom>
-<tipus>{{i.Tipus}}</tipus>
-<escriptor>{{i.escriptor}}</escriptor>
+<br>
+	<nom>{{contentbody.nom }}</nom>
+	<tipus>{{contentbody.Tipus}}</tipus>
+	<escriptor>{{contentbody.escriptor}}</escriptor>
 
-<representacio>
-{% for representacio in i.representacio.all %}
-<nom>{{representacio.nom }}</nom>
-<director>{{representacio.director}}</director>
-<dataInici>{{representacio.dataInici }}</dataInici>
-<dataFi>{{representacio.dataFi }}</dataFi>
+	<br>
+	<representacio>
+		{% for representacio in contentbody.representacions.all %}
+		<nom>{{representacio.nom }}</nom>
+		<director>{{representacio.director}}</director>
+		<dataInici>{{representacio.dataInici }}</dataInici>
+		<dataFi>{{representacio.dataFi }}</dataFi>
 
-<actors>
-{% for actor in i.actor.all %}
-<nom>{{actor.nom }}</nom>
-{% endfor %}
-</actors>
+		<br>
+		<actors>
+			{% for actor in representacio.actors.all %}
+			<nom>{{actor.nom }}</nom>
+			{% endfor %}
+		</actors>
+		</br>
 
-{% endfor %}
-</representacio>
-
+		{% endfor %}
+	</representacio>
+	</br>
 
 <br/>
 </obres>
 
-{% endfor %}
 </obresTeatre>

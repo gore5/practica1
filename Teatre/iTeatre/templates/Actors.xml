@@ -3,16 +3,12 @@
 <actors>
 
 <titol>{{ pagetitle }}</titol><br/>
-{% for i in contentbody %}
 
 <actor>
-<nom>{{i.nom }}</nom>
-<edat>{{i.edat}}</edat>
-<sexe>{{i.sexe}}</sexe>
+<nom>{{contentbody.nom }}</nom>
+<edat>{{contentbody.edat}}</edat>
+<sexe>{{contentbody.sexe}}</sexe>
 <br/>
 </actor>
-
-{% endfor %}
-
 
 </actors>
