@@ -108,8 +108,8 @@ def directorpagina(request, format='html'):
 		'pagetitle': 'Llista de Directors',
 		'contentbody': director,
 		'name':'/directors/',
-		'tag1':'director',
-		'tag2':'directors',
+		'tag1':'directors',
+		'tag2':'director',
 		'user': request.user,
 	})
 	output = template.render(variables)
@@ -125,8 +125,8 @@ def directordades(request, idDirector, format='html'):
 	variables = Context({
 		'pagetitle': 'Dades del director',
 		'contentbody': director,
-		'tag1':'director',
-		'tag2':'directors',
+		'tag1':'directors',
+		'tag2':'director',
 		'user': request.user,
 	})
 	output = template.render(variables)
@@ -146,6 +146,7 @@ def representaciopagina(request, format='html'):
 		'pagetitle': 'Llista de Representacions',
 		'contentbody': representacio,
 		'name':'/representacions/',
+		'tag1':'representacions',
 		'user': request.user,
 	})
 	output = template.render(variables)
@@ -162,6 +163,7 @@ def representaciodades(request, idRepresentacio, format='html'):
 	variables = Context({
 		'pagetitle': 'Informacio de la representacio',
 		'contentbody': representacio,
+		'tag1':'representacions',
 		'user': request.user,
 	})
 	output = template.render(variables)
@@ -179,6 +181,7 @@ def obra_Teatrepagina(request, format='html'):
 		'pagetitle': 'Llista de obres de teatre',
 		'contentbody': obra_Teatre,
 		'name':'/obresTeatre/',
+		'tag1':'obresTeatre',
 		'user': request.user,
 	})
 	output = template.render(variables)
@@ -195,6 +198,7 @@ def obra_Teatredades(request, idObra, format='html'):
 	variables = Context({
 		'pagetitle': 'Informacio de les obres de teatre',
 		'contentbody': obra_Teatre,
+		'tag1':'obresTeatre',
 		'user': request.user,
 	})
 	output = template.render(variables)
