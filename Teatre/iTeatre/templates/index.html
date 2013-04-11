@@ -14,10 +14,6 @@
     </head>
     <body>
 	
-	
-		
-	
-	
 		<div id="bg">
 			<div id="outer">
 				<div id="header">
@@ -31,13 +27,13 @@
 				<div id="main">
 					<div id="sidebar">
 						<h3>
-							Hola benvingut! {% if user.username %}<p>User {{ user.username }}</p>
-							<a href="/admin">Acces base de dades</a>
+							Hola! {% if user.username %}<p>User {{ user.username }}</p>
+							<a href="/admin">Acc&eacute;s base de dades</a>
 							{% else %} <p><a href="/login/"> Sign in </a></p>{% endif %}
 						</h3>
 						
 						<p>
-							Aqui tens tots els links que pots llistar:
+							Aqu&iacute; tens tots els links que pots llistar:
 						</p>
 						
 						<ul class="linkedList">
@@ -63,12 +59,16 @@
 					<div id="content">
 						<div id="box1">
 						{% block content %}
-							<h2>
-								
-							
+							<h2><center> 
+								Benvingut a  Teatre Catalunyans
+							</center>
 							</h2>
+							<img src="{% static "images/v-de-vendetta.jpg" %}" width="800" height="500" alt="My image"/>
 							{% endblock %}
-							<p>{% block nextcontent %}
+						
+
+							
+							<p>{% block nextcontent %} 
 								
 							</p>{% endblock %}
 						</div>
@@ -79,7 +79,7 @@
 				</div>
 			</div>
 			<div id="copyright">
-				&copy; CatalunyaLliure | Design by Carol and other</a>
+				&copy; CatalunyaLliure | Created by Carol and Pol </a>
 			</div>
 		</div>
     </body>
