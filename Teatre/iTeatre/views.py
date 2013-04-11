@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 from django.http import HttpResponse, Http404
 from django.template import Context
 from django.template.loader import get_template
@@ -11,8 +13,8 @@ def mainpage(request):
 	template = get_template('index.html')
 	variables = Context({
 		'titlehead': 'Teatre aPP',
-		'pagetitle': 'Benvingut a la aplicacio de Teatres',
-		'contentbody': 'Aqui podras administrar coses de Teatre',
+		'pagetitle': 'Benvingut a la aplicació de Teatres',
+		'contentbody': 'Aquí podràs administrar coses de Teatre',
 		'user': request.user,
 	})
 	output = template.render(variables)
@@ -29,7 +31,7 @@ def escriptorpagina(request, format='html'):
 	else:
 		template = get_template('llista.html')
 	variables = Context({
-		'pagetitle': 'Llista de escriptors',
+		'pagetitle': "Llista d'escriptors",
 		'contentbody': escriptor,
 		'name':'/escriptors/',
 		'tag1':'escriptors',
@@ -67,7 +69,7 @@ def actorpagina(request, format='html'):
 	else:
 		template = get_template('llista.html')
 	variables = Context({
-		'pagetitle': 'Llista de actors',
+		'pagetitle': "Llista d'actors",
 		'contentbody': actor,
 		'name':'/actors/',
 		'tag1':'actors',
@@ -161,7 +163,7 @@ def representaciodades(request, idRepresentacio, format='html'):
 	else:
 		template = get_template('representacio.html')
 	variables = Context({
-		'pagetitle': 'Informacio de la representacio',
+		'pagetitle': 'Informació de la representació',
 		'contentbody': representacio,
 		'tag1':'representacions',
 		'user': request.user,
@@ -178,7 +180,7 @@ def obra_Teatrepagina(request, format='html'):
 	else:
 		template = get_template('llista.html')
 	variables = Context({
-		'pagetitle': 'Llista de obres de teatre',
+		'pagetitle': "Llista d'obres de teatre",
 		'contentbody': obra_Teatre,
 		'name':'/obresTeatre/',
 		'tag1':'obresTeatre',
@@ -196,7 +198,7 @@ def obra_Teatredades(request, idObra, format='html'):
 	else:
 		template = get_template('infoObresTeatre.html')
 	variables = Context({
-		'pagetitle': 'Informacio de les obres de teatre',
+		'pagetitle': 'Informació de les obres de teatre',
 		'contentbody': obra_Teatre,
 		'tag1':'obresTeatre',
 		'user': request.user,
