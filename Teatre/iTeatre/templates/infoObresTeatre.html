@@ -6,7 +6,7 @@
 {% block nextcontent %}	
 		<li><p> <b>{{contentbody.nom }}</b></p></li>
 		<ol>
-			<ol><p>Tipus: {{contentbody.Tipus}}</p>
+			<ol><p>G&egrave;nere: {{contentbody.Tipus}}</p>
 				<p>Escriptor: {{contentbody.escriptor}}</p>
 					<ol>{% for representacio in contentbody.representacions.all %}
 					<li><b><p>Representacio: {{representacio.nom}}</b></p></li>

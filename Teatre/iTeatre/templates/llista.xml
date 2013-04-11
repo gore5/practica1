@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<actors>
-<a>safdsafsadfsafdsfsdafsfda</a>
-<titol>{{ pagetitle }}</titol><br/>
-{% for i in contentbody %}
-
-<actor>
-<nom>Nom: {{i.nom }}</nom>
-<edat>Edat: {{i.edat}}</edat>
-<sexe>Sexe: {{i.sexe}}</sexe>
-<br/>
-</actor>
-
-{% endfor %}
-
-
-</actors>
+<{{tag1}}>
+	{% for i in contentbody %}
+	<nom>{{i.nom}}</nom>
+	{% endfor %}
+</{{tag1}}>
